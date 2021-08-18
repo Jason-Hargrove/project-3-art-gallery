@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
@@ -8,6 +8,21 @@ export default function App(props) {
 		title: '',
 		searchURL: ''
 	});
+
+	const [art, updateArt] = useState({});
+	useEffect(() => {
+		query.searchURL.length > 0 &&
+			(async () => {
+				try {
+					const response = await fetch(query.searchURL);
+					const data = await response.json();
+					updateArt({ ...data });
+					updateQuery({ ...query, title: '', searchURL: '' });
+				} catch (e) {
+					console.error(e);
+				}
+			})();
+	}, [query]);
 
 	const handleChange = e => {
 		updateQuery({ ...query, ...{ [e.target.id]: e.target.value } });
@@ -20,6 +35,12 @@ export default function App(props) {
 			searchURL: query.baseURL + query.option + query.title
 		});
 	};
+
+	// const list = art
+	// 	? art.objectIDs.map(word => {
+	// 			<div>{word}</div>;
+	// 	  })
+	// 	: null;
 
 	return (
 		<div className="AppPage">
@@ -35,9 +56,11 @@ export default function App(props) {
 				/>
 				<input type="submit" value="Find Art" />
 			</form>
-			<h1>
-				<a href={query.searchURL}>Your URL:{query.searchURL}</a>
-			</h1>
+			<div>{Object.keys(art).length > 0 ? art.objectIDs : 'Awaiting Art'}</div>
+			<div>
+				{art.objectIDs &&
+					art.objectIDs.map(word => <div key={word}>{word}</div>)}
+			</div>
 		</div>
 	);
 }
