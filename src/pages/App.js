@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ArtInfo from '../components/ArtInfo';
 
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
@@ -18,6 +19,7 @@ export default function App(props) {
 					const data = await response.json();
 					updateArt({ ...data });
 					updateQuery({ ...query, title: '', searchURL: '' });
+					console.log(data);
 				} catch (e) {
 					console.error(e);
 				}
@@ -46,6 +48,13 @@ export default function App(props) {
 		<div className="AppPage">
 			<h2>Gallery App</h2>
 			<h3>{name}</h3>
+			<button
+				onClick={e => {
+					updateName(Math.floor(Math.random() * 1000));
+				}}
+			>
+				Click Me
+			</button>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="title"> Title</label>
 				<input
@@ -59,8 +68,13 @@ export default function App(props) {
 			<div>{Object.keys(art).length > 0 ? art.objectIDs : 'Awaiting Art'}</div>
 			<div>
 				{art.objectIDs &&
-					art.objectIDs.map(word => <div key={word}>{word}</div>)}
+					art.objectIDs.map(word => (
+						<div key={word}>
+							<button>{word}</button>
+						</div>
+					))}
 			</div>
+			<main>{Object.keys(art).length ? <ArtInfo art={art} /> : ''}</main>
 		</div>
 	);
 }
