@@ -4,13 +4,9 @@ import ArtInfo from '../components/ArtInfo';
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
 	const [objectIDs, setObjectIDs] = useState('');
+	const [art, updateArt] = useState({});
 
-	// const [query, updateQuery] = useState({
-	// 	baseURL: 'https://collectionapi.metmuseum.org/public/collection/v1/search?',
-	// 	option: 'title=true&q=',
-	// 	title: '',
-	// 	searchURL: ''
-	// });
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
 		try {
@@ -27,7 +23,6 @@ export default function App(props) {
 		}
 	};
 
-	const [art, updateArt] = useState({});
 	useEffect(() => {
 		getArt('Sunflowers');
 	}, []);
@@ -42,11 +37,22 @@ export default function App(props) {
 		setObjectIDs('');
 	};
 
-	// const list = art
-	// 	? art.objectIDs.map(word => {
-	// 			<div>{word}</div>;
-	// 	  })
-	// 	: null;
+	// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
+
+	const postArt = async searchTerm => {
+		try {
+			// Make fetch request and store response.
+			const response = await fetch(
+				`https://collectionapi.metmuseum.org/public/collection/v1/search?title=true&q=${searchTerm}`
+			);
+			// Parse JSON response into a javascript object.
+			const data = await response.json();
+			//set the Art state to the Art
+			updateArt(data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	return (
 		<div className="AppPage">
