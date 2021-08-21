@@ -3,39 +3,43 @@ import ArtInfo from '../components/ArtInfo';
 
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
-	const [query, updateQuery] = useState({
-		baseURL: 'https://collectionapi.metmuseum.org/public/collection/v1/search?',
-		option: 'title=true&q=',
-		title: '',
-		searchURL: ''
-	});
+	const [objectIDs, setObjectIDs] = useState('');
+
+	// const [query, updateQuery] = useState({
+	// 	baseURL: 'https://collectionapi.metmuseum.org/public/collection/v1/search?',
+	// 	option: 'title=true&q=',
+	// 	title: '',
+	// 	searchURL: ''
+	// });
+
+	const getArt = async searchTerm => {
+		try {
+			// Make fetch request and store response.
+			const response = await fetch(
+				`https://collectionapi.metmuseum.org/public/collection/v1/search?title=true&q=${searchTerm}`
+			);
+			// Parse JSON response into a javascript object.
+			const data = await response.json();
+			//set the Art state to the Art
+			updateArt(data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	const [art, updateArt] = useState({});
 	useEffect(() => {
-		query.searchURL.length > 0 &&
-			(async () => {
-				try {
-					const response = await fetch(query.searchURL);
-					const data = await response.json();
-					updateArt({ ...data });
-					updateQuery({ ...query, title: '', searchURL: '' });
-					console.log(data);
-				} catch (e) {
-					console.error(e);
-				}
-			})();
-	}, [query]);
+		getArt('Sunflowers');
+	}, []);
 
 	const handleChange = e => {
-		updateQuery({ ...query, ...{ [e.target.id]: e.target.value } });
+		setObjectIDs(e.target.value);
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		updateQuery({
-			...query,
-			searchURL: query.baseURL + query.option + query.title
-		});
+		getArt(objectIDs);
+		setObjectIDs('');
 	};
 
 	// const list = art
@@ -60,7 +64,7 @@ export default function App(props) {
 				<input
 					id="title"
 					type="text"
-					value={query.title}
+					value={objectIDs}
 					onChange={handleChange}
 				/>
 				<input type="submit" value="Find Art" />
