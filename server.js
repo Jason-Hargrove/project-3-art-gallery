@@ -101,3 +101,5 @@ http.createServer(function (req, res) {
 console.log(`Server started! Listening on port: ${PORT}`);
 // basic node server without express serving
 */
+
+// Arrows:  ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ 

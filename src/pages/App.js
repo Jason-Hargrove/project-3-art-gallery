@@ -6,7 +6,7 @@ export default function App(props) {
 	const [objectIDs, setObjectIDs] = useState('');
 	const [art, updateArt] = useState({});
 
-	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
 		try {
@@ -16,7 +16,7 @@ export default function App(props) {
 			);
 			// Parse JSON response into a javascript object.
 			const data = await response.json();
-			//set the Art state to the Art
+			// Set the Art state to the Art.
 			updateArt(data);
 		} catch (err) {
 			console.error(err);
@@ -37,7 +37,10 @@ export default function App(props) {
 		setObjectIDs('');
 	};
 
-	// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
+// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
+
+
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Adding an Object to the Page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const postArt = async searchTerm => {
 		try {
