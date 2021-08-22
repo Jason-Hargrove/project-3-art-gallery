@@ -6,7 +6,7 @@ export default function App(props) {
 	const [objectIDs, setObjectIDs] = useState('');
 	const [art, updateArt] = useState({});
 
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
 		try {
@@ -37,16 +37,15 @@ export default function App(props) {
 		setObjectIDs('');
 	};
 
-// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
+	// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
 
-
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Adding an Object to the Page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Adding an Object to the Page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const postArt = async searchTerm => {
 		try {
 			// Make fetch request and store response.
 			const response = await fetch(
-				`https://collectionapi.metmuseum.org/public/collection/v1/search?title=true&q=${searchTerm}`
+				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${searchTerm}`
 			);
 			// Parse JSON response into a javascript object.
 			const data = await response.json();
@@ -56,6 +55,13 @@ export default function App(props) {
 			console.error(err);
 		}
 	};
+
+	const handleIDClick = e => {
+		e.preventDefault();
+		postArt(e.target.value);
+	};
+
+	// ↑↑↑↑↑↑↑↑↑↑↑  Adding an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
 
 	return (
 		<div className="AppPage">
@@ -83,7 +89,9 @@ export default function App(props) {
 				{art.objectIDs &&
 					art.objectIDs.map(word => (
 						<div key={word}>
-							<button>{word}</button>
+							<button value={word} onClick={handleIDClick}>
+								{word}
+							</button>
 						</div>
 					))}
 			</div>
