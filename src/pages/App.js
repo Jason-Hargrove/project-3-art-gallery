@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ArtInfo from '../components/ArtInfo';
+import RightPanel from '../components/RightPanel';
 
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
 	const [objectIDs, setObjectIDs] = useState('');
 	const [art, updateArt] = useState({});
+	const [populate, updatePopulate] = useState({});
 
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -18,14 +20,11 @@ export default function App(props) {
 			const data = await response.json();
 			// Set the Art state to the Art.
 			updateArt(data);
+			updatePopulate('');
 		} catch (err) {
 			console.error(err);
 		}
 	};
-
-	useEffect(() => {
-		getArt('Sunflowers');
-	}, []);
 
 	const handleChange = e => {
 		setObjectIDs(e.target.value);
@@ -39,7 +38,7 @@ export default function App(props) {
 
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Grabbing the objectIDs ↑↑↑↑↑↑↑↑↑↑↑
 
-	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Adding an Object to the Page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Add an Object to the Page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const postArt = async searchTerm => {
 		try {
@@ -49,8 +48,8 @@ export default function App(props) {
 			);
 			// Parse JSON response into a javascript object.
 			const data = await response.json();
-			//set the Art state to the Art
-			updateArt(data);
+			updatePopulate(data);
+			updateArt('');
 		} catch (err) {
 			console.error(err);
 		}
@@ -61,7 +60,7 @@ export default function App(props) {
 		postArt(e.target.value);
 	};
 
-	// ↑↑↑↑↑↑↑↑↑↑↑  Adding an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
+	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
 
 	return (
 		<div className="AppPage">
@@ -84,7 +83,6 @@ export default function App(props) {
 				/>
 				<input type="submit" value="Find Art" />
 			</form>
-			<div>{Object.keys(art).length > 0 ? art.objectIDs : 'Awaiting Art'}</div>
 			<div>
 				{art.objectIDs &&
 					art.objectIDs.map(word => (
@@ -95,7 +93,12 @@ export default function App(props) {
 						</div>
 					))}
 			</div>
-			<main>{Object.keys(art).length ? <ArtInfo art={art} /> : ''}</main>
+			<main>
+				{Object.keys(populate).length ? <ArtInfo art={populate} /> : ''}
+			</main>
+			<aside>
+				<RightPanel title={'Right Panel'} />
+			</aside>
 		</div>
 	);
 }
