@@ -67,8 +67,10 @@ export default function App(props) {
 		<>
 			<section>
 				<header>
+					<img src="/img/testImg.png" id="imgTag" alt="Test Image" />
 					<h2>Gallery App</h2>
 					<h3>{name}</h3>
+
 					<button
 						onClick={e => {
 							updateName(Math.floor(Math.random() * 1000));
