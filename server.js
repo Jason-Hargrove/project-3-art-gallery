@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
+const adController = require('./controllers/ads')
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -22,12 +23,7 @@ if (process.env.NODE_ENV !== 'development'){
 }
 
 /* Controller Goes Here Remove the tes*/
-app.get('/test', (req, res)=>{
-	res.status(200).json({
-		website: 'My Website',
-		info: 'Not that much'
-	})
-})
+app.use('/api/ads', adController);
 /* Controller Ends here */
 //LISTENER
 
@@ -102,4 +98,4 @@ console.log(`Server started! Listening on port: ${PORT}`);
 // basic node server without express serving
 */
 
-// Arrows:  ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ 
+// Arrows:  ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙

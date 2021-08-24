@@ -8,6 +8,7 @@ export default function App(props) {
 	const [objectIDs, setObjectIDs] = useState('');
 	const [art, updateArt] = useState({});
 	const [populate, updatePopulate] = useState({});
+	const [ads, setAds] = useState([]);
 
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -63,6 +64,22 @@ export default function App(props) {
 
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
 
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Right Panel Ads ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch('/api/ads');
+				const data = await response.json();
+				setAds(data);
+			} catch (error) {
+				console.error(error);
+			}
+		})();
+	}, []);
+
+	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
+
 	return (
 		<>
 			<section>
@@ -110,6 +127,17 @@ export default function App(props) {
 
 					<aside className="sidebar2">
 						<RightPanel title={'Right Panel'} />
+						<ul>
+							{ads.map(ad => {
+								return (
+									<li key={ad._id}>
+										<h3>{ad.name}</h3>
+										<h3>{ad.description}</h3>
+										<img src={`${ad.imageUrl}`} />
+									</li>
+								);
+							})}
+						</ul>
 					</aside>
 				</main>
 

@@ -1,4 +1,4 @@
-const Ad = require('../models/blog');
+const Ad = require('../models/ad');
 const router = require('express').Router();
 
 // ===== Create =====
