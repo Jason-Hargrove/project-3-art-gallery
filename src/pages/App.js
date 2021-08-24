@@ -65,7 +65,7 @@ export default function App(props) {
 
 	return (
 		<>
-			<section className="container">
+			<section>
 				<header>
 					<h2>Gallery App</h2>
 					<h3>{name}</h3>
