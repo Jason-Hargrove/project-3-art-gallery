@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArtInfo from '../components/ArtInfo';
 import RightPanel from '../components/RightPanel';
+import Footer from '../components/Footer';
 
 export default function App(props) {
 	const [name, updateName] = useState('Jason');
@@ -63,42 +64,57 @@ export default function App(props) {
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
 
 	return (
-		<div className="AppPage">
-			<h2>Gallery App</h2>
-			<h3>{name}</h3>
-			<button
-				onClick={e => {
-					updateName(Math.floor(Math.random() * 1000));
-				}}
-			>
-				Click Me
-			</button>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="title"> Title</label>
-				<input
-					id="title"
-					type="text"
-					value={objectIDs}
-					onChange={handleChange}
-				/>
-				<input type="submit" value="Find Art" />
-			</form>
-			<div>
-				{art.objectIDs &&
-					art.objectIDs.map(word => (
-						<div key={word}>
-							<button value={word} onClick={handleIDClick}>
-								{word}
-							</button>
+		<>
+			<section className="container">
+				<header>
+					<h2>Gallery App</h2>
+					<h3>{name}</h3>
+					<button
+						onClick={e => {
+							updateName(Math.floor(Math.random() * 1000));
+						}}
+					>
+						Click Me
+					</button>
+				</header>
+
+				<main className="AppPage">
+					<article className="main">
+						{Object.keys(populate).length ? <ArtInfo art={populate} /> : ''}
+					</article>
+
+					<aside className="sidebar1">
+						<form onSubmit={handleSubmit}>
+							<label htmlFor="title">Title</label>
+							<input
+								id="title"
+								type="text"
+								value={objectIDs}
+								onChange={handleChange}
+							/>
+							<input type="submit" value="Find Art" />
+						</form>
+						<div>
+							{art.objectIDs &&
+								art.objectIDs.map(word => (
+									<div key={word}>
+										<button value={word} onClick={handleIDClick}>
+											{word}
+										</button>
+									</div>
+								))}
 						</div>
-					))}
-			</div>
-			<main>
-				{Object.keys(populate).length ? <ArtInfo art={populate} /> : ''}
-			</main>
-			<aside>
-				<RightPanel title={'Right Panel'} />
-			</aside>
-		</div>
+					</aside>
+
+					<aside className="sidebar2">
+						<RightPanel title={'Right Panel'} />
+					</aside>
+				</main>
+
+				<footer>
+					<Footer title={'Footer'} />
+				</footer>
+			</section>
+		</>
 	);
 }

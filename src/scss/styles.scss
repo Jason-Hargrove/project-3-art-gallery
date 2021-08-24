@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
-@import "reset";
-@import "grid";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,900;1,600&display=swap');
 
-body {
-  font-size: 16px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+
+  img {
+    width: 200px
+  }
 }
 
 .NavBar {
@@ -13,32 +18,52 @@ body {
   background-color: #f0f0f0;
 }
 
-.LeftPanel {
+section {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 
+  header {
+    background-color: #ccc;
+    font-size: 1rem;
+  }
+
+  footer {
+    background-color: #ccc;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    article {
+      background-color: #00c9f2;
+      flex: 1;
+    }
+
+    aside {
+      background-color: #f5c622;
+    }
+  }
 }
 
-.ArtInfo {
+@media (min-width: 768px) {
+  main {
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: row;
+  }
 
-}
+  article {
+    flex: 0 0 20%;
+  }
 
-.RightPanel {
+  aside {
+    flex: 0 0 20%;
+  }
 
-}
-
-.HomePage {
-
-}
-
-.AboutPage {
-
-}
-
-.ContactPage{
-
-}
-
-.AppPage {
-  img {
-    width: 200px;
+  .sidebar1 {
+    order: -1;
   }
 }
