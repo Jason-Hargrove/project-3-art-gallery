@@ -4,7 +4,7 @@ export default function Show(props) {
 	const [ad, setAd] = useState({});
 	const nameInput = useRef(null); // It's like doc.querySelector('input#title').
 	const urlInput = useRef(null); // doc.querySelector('input#url').
-  const descriptionInput = useRef(null);
+	const descriptionInput = useRef(null);
 
 	const handleUpdate = async e => {
 		e.preventDefault();
@@ -17,7 +17,7 @@ export default function Show(props) {
 				body: JSON.stringify({
 					name: nameInput.current.value, // <----- Current has all the dom elements you love.
 					imageUrl: urlInput.current.value,
-          description: descriptionInput.current.value
+					description: descriptionInput.current.value
 				})
 			});
 			const data = await response.json();
@@ -61,9 +61,9 @@ export default function Show(props) {
 		<div className="container">
 			{Object.keys(ad).length ? (
 				<>
-          <h3>{ad.name}</h3>
-          <h3>{ad.description}</h3>
-          <img src={`${ad.imageUrl}`}
+					<h3>{ad.name}</h3>
+					<h3>{ad.description}</h3>
+					<img src={`${ad.imageUrl}`} />
 				</>
 			) : (
 				<h1>Loading...</h1>
@@ -78,15 +78,15 @@ export default function Show(props) {
 						defaultValue={ad.name}
 					/>
 				</div>
-        <div className="mb-3">
-          <label className="form-label">Title</label>
-          <input
-            type="text"
-            className="form-control"
-            ref={descriptionInput}
-            defaultValue={ad.description}
-          />
-        </div>
+				<div className="mb-3">
+					<label className="form-label">Title</label>
+					<input
+						type="text"
+						className="form-control"
+						ref={descriptionInput}
+						defaultValue={ad.description}
+					/>
+				</div>
 				<div className="mb-3">
 					<label className="form-label">Url</label>
 					<input
@@ -100,11 +100,7 @@ export default function Show(props) {
 					</div>
 				</div>
 				<div className="d-inline">
-					<input
-						className="btn btn-primary"
-						type="submit"
-						value="Update Ad"
-					/>
+					<input className="btn btn-primary" type="submit" value="Update Ad" />
 				</div>
 				<div className="d-inline p-2">
 					<button

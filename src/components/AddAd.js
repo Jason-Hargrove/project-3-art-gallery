@@ -4,7 +4,7 @@ import { useState } from 'react';
 const AddAd = ({ onAdd }) => {
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+	const [imageUrl, setImageUrl] = useState('');
 
 	const onSubmit = e => {
 		e.preventDefault();
@@ -16,7 +16,7 @@ const AddAd = ({ onAdd }) => {
 		onAdd({ name, description, imageUrl });
 		setName('');
 		setDescription('');
-    setImageUrl('');
+		setImageUrl('');
 	};
 
 	return (
@@ -34,7 +34,7 @@ const AddAd = ({ onAdd }) => {
 					We'll always share your email with everyone.
 				</div>
 			</div>
-      <div className="mb-3">
+			<div className="mb-3">
 				<label className="form-label">Image URL</label>
 				<input
 					className="form-control"
@@ -55,11 +55,7 @@ const AddAd = ({ onAdd }) => {
 				/>
 			</div>
 
-			<input
-				type="submit"
-				value="Save Ad"
-				className="btn btn-primary mb-3"
-			/>
+			<input type="submit" value="Save Ad" className="btn btn-primary mb-3" />
 		</form>
 	);
 };

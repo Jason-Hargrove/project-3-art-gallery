@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Show from '../pages/Post';
 import routes from './routes';
 const AppRouter = () => {
 	return (
@@ -15,10 +16,10 @@ const AppRouter = () => {
 					></Route>
 				))}
 				// ↓↓↓↓↓ Added my own route ↓↓↓↓↓
-		<Route
-			path={'/:id'} // Gets put in props.params.id.
-			render={routerProps => <Show {...routerProps} />} // Individual Post.
-		></Route>
+				<Route
+					path={'/:id'} // Gets put in props.params.id.
+					render={routerProps => <Show {...routerProps} />} // Individual Post.
+				></Route>
 			</Switch>
 		</Router>
 	);

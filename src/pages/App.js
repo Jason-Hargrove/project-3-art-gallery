@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 import ArtInfo from '../components/ArtInfo';
+import AddAd from '../components/AddAd';
 import RightPanel from '../components/RightPanel';
 import Footer from '../components/Footer';
 
@@ -9,7 +12,9 @@ export default function App(props) {
 	const [art, updateArt] = useState({});
 	const [populate, updatePopulate] = useState({});
 	const [ads, setAds] = useState([]);
+	const [showAddAd, setShowAddAd] = useState(false);
 
+	// ========== MOMA API Call ==========
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
@@ -63,7 +68,9 @@ export default function App(props) {
 	};
 
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
+	// ========== End - MOMA API Call ==========
 
+	// ========== Advertisements ==========
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Right Panel Ads ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	useEffect(() => {
@@ -78,7 +85,25 @@ export default function App(props) {
 		})();
 	}, []);
 
+	// Add an Ad
+	const addAd = async e => {
+		try {
+			const response = await fetch('/api/ads/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(e)
+			});
+			const data = await response.json();
+			setAds([...ads, data]);
+		} catch (error) {
+			res.status(404).json({ message: error.message });
+		}
+	};
+
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
+	// ========== End - Advertisements ==========
 
 	return (
 		<>
@@ -142,7 +167,26 @@ export default function App(props) {
 				</main>
 
 				<footer>
-					<Footer title={'Footer'} />
+					<div className="container mt-3">
+						<Footer
+							title="It's the Ad Page"
+							onAdd={() => setShowAddAd(!showAddAd)}
+							showAdd={showAddAd}
+						/>
+						{showAddAd && <AddAd onAdd={addAd} />}
+						<ul className="list-group">
+							{ads.map(ad => {
+								return (
+									<li key={ad._id} className="list-group-item">
+										<Link to={`/${ad._id}`}>
+											<h3>{ad.title}</h3>
+										</Link>
+										<a href={ad.url}>{ad.url}</a>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
 				</footer>
 			</section>
 		</>
