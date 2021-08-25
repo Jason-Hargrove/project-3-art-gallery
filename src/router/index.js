@@ -14,6 +14,11 @@ const AppRouter = () => {
 						component={() => <Component page={key} />}
 					></Route>
 				))}
+				// ↓↓↓↓↓ Added my own route ↓↓↓↓↓
+		<Route
+			path={'/:id'} // Gets put in props.params.id.
+			render={routerProps => <Show {...routerProps} />} // Individual Post.
+		></Route>
 			</Switch>
 		</Router>
 	);

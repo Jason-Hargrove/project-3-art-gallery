@@ -12,7 +12,6 @@ router.post('/', async(req, res) => {
   }
 })
 
-
 // ===== Read =====
   // Index
   router.get('/', async(req, res) => {
