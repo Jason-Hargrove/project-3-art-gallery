@@ -27,7 +27,7 @@ router.post('/', async(req, res) => {
   router.get('/:id', async(req, res) => {
     try {
       const foundAd = await Ad.findById(req.params.id)
-      res.status(200).json(foundAds)
+      res.status(200).json(foundAd)
     } catch (error) {
       console.error(error);
       res.status(400).json({message: error.message})
@@ -37,8 +37,8 @@ router.post('/', async(req, res) => {
 // ===== Update =====
 router.put('/:id', async (req, res) => {
   try {
-    const updateAd = await Ad.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    res.status(200).json(updateAd)
+    const updatedAd = await Ad.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    res.status(200).json(updatedAd)
 
   } catch (error) {
     console.error(error);

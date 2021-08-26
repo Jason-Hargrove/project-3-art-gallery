@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function Show(props) {
+export default function Post(props) {
 	const [ad, setAd] = useState({});
 	const nameInput = useRef(null); // It's like doc.querySelector('input#title').
 	const urlInput = useRef(null); // doc.querySelector('input#url').
@@ -79,7 +79,7 @@ export default function Show(props) {
 					/>
 				</div>
 				<div className="mb-3">
-					<label className="form-label">Title</label>
+					<label className="form-label">Description</label>
 					<input
 						type="text"
 						className="form-control"
@@ -88,7 +88,7 @@ export default function Show(props) {
 					/>
 				</div>
 				<div className="mb-3">
-					<label className="form-label">Url</label>
+					<label className="form-label">Image</label>
 					<input
 						type="text"
 						className="form-control"

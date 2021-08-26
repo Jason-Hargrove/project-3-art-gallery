@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import ArtInfo from '../components/ArtInfo';
 import AddAd from '../components/AddAd';
-import RightPanel from '../components/RightPanel';
 import Footer from '../components/Footer';
 
 export default function App(props) {
-	const [name, updateName] = useState('Jason');
 	const [objectIDs, setObjectIDs] = useState('');
 	const [art, updateArt] = useState({});
 	const [populate, updatePopulate] = useState({});
@@ -110,16 +108,6 @@ export default function App(props) {
 			<section>
 				<header>
 					<img src="/img/testImg.png" id="imgTag" alt="Test Image" />
-					<h2>Gallery App</h2>
-					<h3>{name}</h3>
-
-					<button
-						onClick={e => {
-							updateName(Math.floor(Math.random() * 1000));
-						}}
-					>
-						Click Me
-					</button>
 				</header>
 
 				<main className="AppPage">
@@ -138,27 +126,26 @@ export default function App(props) {
 							/>
 							<input type="submit" value="Find Art" />
 						</form>
-						<div>
-							{art.objectIDs &&
-								art.objectIDs.map(word => (
-									<div key={word}>
-										<button value={word} onClick={handleIDClick}>
-											{word}
-										</button>
-									</div>
-								))}
-						</div>
+						{art.objectIDs &&
+							art.objectIDs.map(word => (
+								<div key={word}>
+									<button value={word} onClick={handleIDClick}>
+										{word}
+									</button>
+								</div>
+							))}
 					</aside>
 
 					<aside className="sidebar2">
-						<RightPanel title={'Right Panel'} />
 						<ul>
 							{ads.map(ad => {
 								return (
 									<li key={ad._id}>
-										<h3>{ad.name}</h3>
-										<h3>{ad.description}</h3>
+										<Link to={`${ad._id}`}>
+											<h3>{ad.name}</h3>
+										</Link>
 										<img src={`${ad.imageUrl}`} />
+										<h3>{ad.description}</h3>
 									</li>
 								);
 							})}
@@ -167,26 +154,12 @@ export default function App(props) {
 				</main>
 
 				<footer>
-					<div className="container mt-3">
-						<Footer
-							title="It's the Ad Page"
-							onAdd={() => setShowAddAd(!showAddAd)}
-							showAdd={showAddAd}
-						/>
-						{showAddAd && <AddAd onAdd={addAd} />}
-						<ul className="list-group">
-							{ads.map(ad => {
-								return (
-									<li key={ad._id} className="list-group-item">
-										<Link to={`/${ad._id}`}>
-											<h3>{ad.title}</h3>
-										</Link>
-										<a href={ad.url}>{ad.url}</a>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
+					<Footer
+						title="It's the Ad Page"
+						onAdd={() => setShowAddAd(!showAddAd)}
+						showAdd={showAddAd}
+					/>
+					{showAddAd && <AddAd onAdd={addAd} />}
 				</footer>
 			</section>
 		</>
