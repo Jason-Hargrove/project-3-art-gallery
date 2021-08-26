@@ -58,60 +58,62 @@ export default function Post(props) {
 	};
 
 	return (
-		<div className="container">
-			{Object.keys(ad).length ? (
-				<>
-					<h3>{ad.name}</h3>
-					<h3>{ad.description}</h3>
-					<img src={`${ad.imageUrl}`} />
-				</>
-			) : (
-				<h1>Loading...</h1>
-			)}
-			<form onSubmit={handleUpdate}>
-				<div className="mb-3">
-					<label className="form-label">Title</label>
-					<input
-						type="text"
-						className="form-control"
-						ref={nameInput}
-						defaultValue={ad.name}
-					/>
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Description</label>
-					<input
-						type="text"
-						className="form-control"
-						ref={descriptionInput}
-						defaultValue={ad.description}
-					/>
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Image</label>
-					<input
-						type="text"
-						className="form-control"
-						ref={urlInput}
-						defaultValue={ad.imageUrl}
-					/>
-					<div className="form-text">
-						Whatever you put in here with be a link.
-					</div>
-				</div>
-				<div className="d-inline">
-					<input className="btn btn-primary" type="submit" value="Update Ad" />
-				</div>
-				<div className="d-inline p-2">
-					<button
-						className="btn btn-danger"
-						onClick={handleDelete}
-						type="button"
-					>
-						DELETE ME
-					</button>
-				</div>
+		<>
+			<form className="post" onSubmit={handleUpdate}>
+				<h1>Update or Delete Form</h1>
+				{Object.keys(ad).length ? (
+					<>
+						<h3>{ad.name}</h3>
+						<img src={`${ad.imageUrl}`} />
+						<h3>{ad.description}</h3>
+					</>
+				) : (
+					<h1>Loading...</h1>
+				)}
+				<section>
+					<p>
+						<label htmlFor="name" />
+						<span>Name</span>
+						<input
+							type="text"
+							id="name"
+							className="form-control"
+							ref={nameInput}
+							defaultValue={ad.name}
+						/>
+					</p>
+					<p>
+						<label htmlFor="description" />
+						<span>Description</span>
+						<input
+							type="text"
+							id="description"
+							className="form-control"
+							ref={descriptionInput}
+							defaultValue={ad.description}
+						/>
+					</p>
+					<p>
+						<label htmlFor="image" />
+						<span>Image</span>
+						<input
+							type="text"
+							id="image"
+							className="form-control"
+							ref={urlInput}
+							defaultValue={ad.imageUrl}
+						/>
+					</p>
+					<p>
+						<input type="submit" value="Update Ad" />
+					</p>
+					<p>
+						<button onClick={handleDelete} type="button">
+							DELETE ME
+						</button>
+					</p>
+				</section>
 			</form>
-		</div>
+		</>
 	);
 }

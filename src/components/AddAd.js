@@ -21,41 +21,44 @@ const AddAd = ({ onAdd }) => {
 
 	return (
 		<form onSubmit={onSubmit}>
-			<div className="mb-3">
-				<label className="form-label">Name</label>
-				<input
-					className="form-control"
-					type="text"
-					placeholder="Add Ad"
-					value={name}
-					onChange={e => setName(e.target.value)}
-				/>
-				<div className="form-text">
-					We'll always share your email with everyone.
-				</div>
-			</div>
-			<div className="mb-3">
-				<label className="form-label">Image URL</label>
-				<input
-					className="form-control"
-					type="text"
-					placeholder="Add Image URL"
-					value={imageUrl}
-					onChange={e => setImageUrl(e.target.value)}
-				/>
-			</div>
-			<div className="mb-3">
-				<label className="form-label">Description</label>
-				<input
-					className="form-control"
-					type="text"
-					placeholder="Add Description"
-					value={description}
-					onChange={e => setDescription(e.target.value)}
-				/>
-			</div>
-
-			<input type="submit" value="Save Ad" className="btn btn-primary mb-3" />
+			<section>
+				<p>
+					<label htmlFor="name" />
+					<span>Name</span>
+					<input
+						type="text"
+						id="name"
+						placeholder="Add Ad"
+						value={name}
+						onChange={e => setName(e.target.value)}
+					/>
+				</p>
+				<p>
+					<label htmlFor="image" />
+					<span>Image URL</span>
+					<input
+						type="text"
+						id="image"
+						placeholder="Add Image URL"
+						value={imageUrl}
+						onChange={e => setImageUrl(e.target.value)}
+					/>
+				</p>
+				<p>
+					<label htmlFor="description" />
+					<span>Description</span>
+					<input
+						type="text"
+						id="description"
+						placeholder="Add Description"
+						value={description}
+						onChange={e => setDescription(e.target.value)}
+					/>
+				</p>
+				<p>
+					<input type="submit" value="Save Ad" />
+				</p>
+			</section>
 		</form>
 	);
 };

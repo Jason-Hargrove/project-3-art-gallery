@@ -105,12 +105,12 @@ export default function App(props) {
 
 	return (
 		<>
-			<section>
+			<section className="app-page">
 				<header>
 					<img src="/img/testImg.png" id="imgTag" alt="Test Image" />
 				</header>
 
-				<main className="AppPage">
+				<main>
 					<article className="main">
 						{Object.keys(populate).length ? <ArtInfo art={populate} /> : ''}
 					</article>
@@ -141,10 +141,10 @@ export default function App(props) {
 							{ads.map(ad => {
 								return (
 									<li key={ad._id}>
+										<h3>{ad.name}</h3>
 										<Link to={`${ad._id}`}>
-											<h3>{ad.name}</h3>
+											<img src={`${ad.imageUrl}`} />
 										</Link>
-										<img src={`${ad.imageUrl}`} />
 										<h3>{ad.description}</h3>
 									</li>
 								);
@@ -154,11 +154,7 @@ export default function App(props) {
 				</main>
 
 				<footer>
-					<Footer
-						title="It's the Ad Page"
-						onAdd={() => setShowAddAd(!showAddAd)}
-						showAdd={showAddAd}
-					/>
+					<Footer onAdd={() => setShowAddAd(!showAddAd)} showAdd={showAddAd} />
 					{showAddAd && <AddAd onAdd={addAd} />}
 				</footer>
 			</section>

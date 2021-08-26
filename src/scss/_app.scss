@@ -1,0 +1,51 @@
+section.app-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+
+  header {
+    background-color: #ccc;
+    font-size: 1rem;
+  }
+
+  footer {
+    background-color: #ccc;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    article.main {
+      background-color: #00c9f2;
+      flex: 1;
+    }
+
+    aside {
+      background-color: #f5c622;
+    }
+  }
+
+  @media (min-width: 768px) {
+    main {
+      width: 80%;
+      margin: 0 auto;
+      flex-direction: row;
+    }
+
+    aside {
+      flex: 0 0 20%;
+    }
+
+    .sidebar1 {
+      order: -1;
+    }
+  }
+}
