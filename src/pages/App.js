@@ -107,7 +107,12 @@ export default function App(props) {
 		<>
 			<section className="app-page">
 				<header>
-					<img src="/img/testImg.png" id="imgTag" alt="Test Image" />
+					<img
+						className="logo"
+						src="/img/serch-the-moma-api.png"
+						id="imgTag"
+						alt="Test Image"
+					/>
 				</header>
 
 				<main>
@@ -124,7 +129,7 @@ export default function App(props) {
 								value={objectIDs}
 								onChange={handleChange}
 							/>
-							<input type="submit" value="Find Art" />
+							<input className="new-button" type="submit" value="Find Art" />
 						</form>
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
