@@ -129,7 +129,11 @@ export default function App(props) {
 								value={objectIDs}
 								onChange={handleChange}
 							/>
-							<input className="new-button" type="submit" value="Find Art" />
+							<input
+								className="standard-button"
+								type="submit"
+								value="Find Art"
+							/>
 						</form>
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
