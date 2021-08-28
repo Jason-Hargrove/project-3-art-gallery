@@ -56,7 +56,11 @@ const AddAd = ({ onAdd }) => {
 					/>
 				</p>
 				<p>
-					<input type="submit" value="Save Ad" />
+					<input
+						className="standard-button savead-button"
+						type="submit"
+						value="Save Ad"
+					/>
 				</p>
 			</section>
 		</form>

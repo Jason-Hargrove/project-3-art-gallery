@@ -105,10 +105,18 @@ export default function Post(props) {
 						/>
 					</p>
 					<p>
-						<input type="submit" value="Update Ad" />
+						<input
+							className="standard-button"
+							type="submit"
+							value="Update Ad"
+						/>
 					</p>
 					<p>
-						<button onClick={handleDelete} type="button">
+						<button
+							className="delete-button"
+							onClick={handleDelete}
+							type="button"
+						>
 							DELETE ME
 						</button>
 					</p>

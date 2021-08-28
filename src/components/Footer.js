@@ -6,7 +6,7 @@ const Footer = ({ onAdd, showAdd }) => {
 		<>
 			<Button
 				color={showAdd ? 'red' : 'green'}
-				text={showAdd ? 'Close' : 'Add a Bookmark'}
+				text={showAdd ? 'Close' : 'Add an Ad'}
 				onClick={onAdd}
 			/>
 		</>

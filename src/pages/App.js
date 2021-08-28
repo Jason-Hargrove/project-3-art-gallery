@@ -138,7 +138,11 @@ export default function App(props) {
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
 								<div key={word}>
-									<button value={word} onClick={handleIDClick}>
+									<button
+										className="objectid-button"
+										value={word}
+										onClick={handleIDClick}
+									>
 										{word}
 									</button>
 								</div>

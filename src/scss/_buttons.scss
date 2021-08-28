@@ -12,6 +12,7 @@
   transition: all 0.15s;
 }
 
+
 .standard-button {
   @extend %new-button;
   background-color: $yellow;
@@ -21,6 +22,48 @@
   text-shadow: none;
   border-color: $magenta;
 }
+
+
+.objectid-button {
+  @extend %new-button;
+  color: $white;
+  background-color: $orange;
+  padding: 0.5em 1em;
+}
+.objectid-button:hover {
+  color: $yellow;
+  text-shadow: none;
+  border-color: $magenta;
+}
+
+
+.create-button {
+  @extend %new-button;
+  color: $white;
+}
+.create-button:hover {
+  color: $yellow;
+  text-shadow: none;
+  border-color: $magenta;
+}
+
+
+.delete-button {
+  @extend %new-button;
+  padding: 1em 1.65em;
+  color: $white;
+  background-color: red;
+}
+.delete-button:hover {
+  color: $yellow;
+  text-shadow: none;
+  border-color: $magenta;
+}
+
+.savead-button {
+  padding: 1em 1.2em;
+}
+
 
 @media all and (max-width:30em) {
   %new-button {
