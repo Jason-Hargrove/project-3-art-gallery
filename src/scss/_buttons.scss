@@ -24,12 +24,18 @@
 }
 
 
+.find-art-button {
+  margin: 15px 0 10px 0;
+}
+
+
 .objectid-button {
   @extend %new-button;
   color: $white;
   background-color: $orange;
   padding: 0.5em 1em;
 }
+
 .objectid-button:hover {
   color: $yellow;
   text-shadow: none;
@@ -63,7 +69,6 @@
 .savead-button {
   padding: 1em 1.2em;
 }
-
 
 @media all and (max-width:30em) {
   %new-button {

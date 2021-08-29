@@ -122,19 +122,21 @@ export default function App(props) {
 
 					<aside className="sidebar1">
 						<form onSubmit={handleSubmit}>
-							<label htmlFor="title">Title</label>
+							<label htmlFor="title">Find some art.</label>
 							<input
 								id="title"
+								placeholder="Enter a title here"
 								type="text"
 								value={objectIDs}
 								onChange={handleChange}
 							/>
 							<input
-								className="standard-button"
+								className="standard-button find-art-button"
 								type="submit"
 								value="Find Art"
 							/>
 						</form>
+						<p>Click on an object ID below.</p>
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
 								<div key={word}>
@@ -154,11 +156,11 @@ export default function App(props) {
 							{ads.map(ad => {
 								return (
 									<li key={ad._id}>
-										<h3>{ad.name}</h3>
+										<h4>{ad.name}</h4>
 										<Link to={`${ad._id}`}>
 											<img src={`${ad.imageUrl}`} />
 										</Link>
-										<h3>{ad.description}</h3>
+										<p>{ad.description}</p>
 									</li>
 								);
 							})}

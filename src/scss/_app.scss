@@ -11,6 +11,7 @@ section.app-page {
 
   header {
     margin: 10px;
+    text-align: center;
   }
 
   footer {
@@ -39,6 +40,13 @@ section.app-page {
     aside {
       color: $white;
       margin: 10px;
+
+
+      ul {
+        p {
+          margin: 15px 0 20px 0;
+        }
+      }
     }
   }
 
@@ -56,6 +64,24 @@ section.app-page {
 
     .sidebar1 {
       order: -1;
+    }
+  }
+
+  @media all and (max-width:48em) {
+    .sidebar1 {
+      display:block;
+      margin: 1em auto;
+      text-align: center;
+
+      label {
+        padding-right: 1em;
+      }
+
+      #title {
+        margin-right: 1em;
+      }
+
+
     }
   }
 }
