@@ -158,11 +158,15 @@ export default function App(props) {
 							{ads.map(ad => {
 								return (
 									<li key={ad._id}>
-										<h4>{ad.name}</h4>
+										<a href="http://www.jasonhargroveart.com/purchase">
+											<h4>{ad.name}</h4>
+										</a>
 										<Link to={`${ad._id}`}>
 											<img src={`${ad.imageUrl}`} />
 										</Link>
-										<p>{ad.description}</p>
+										<a href="http://www.jasonhargroveart.com/purchase">
+											<p>{ad.description}</p>
+										</a>
 									</li>
 								);
 							})}

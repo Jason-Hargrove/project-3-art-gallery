@@ -3,6 +3,22 @@ section.app-page {
   min-height: 100vh;
   flex-direction: column;
 
+  a:visited, a:link, a:active
+  {
+      text-decoration: none
+  }
+
+  a {
+    color: $white;
+    transition: color .5s;
+  }
+
+  a:hover
+  {
+      color: $blue;
+
+  }
+
   img {
     max-width: 100%;
     height: auto;

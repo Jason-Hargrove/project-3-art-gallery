@@ -60,16 +60,18 @@ export default function Post(props) {
 	return (
 		<>
 			<form className="post" onSubmit={handleUpdate}>
-				<h1>Update or Delete Form</h1>
-				{Object.keys(ad).length ? (
-					<>
-						<h3>{ad.name}</h3>
-						<img src={`${ad.imageUrl}`} />
-						<h3>{ad.description}</h3>
-					</>
-				) : (
-					<h1>Loading...</h1>
-				)}
+				<header id="ad-info">
+					<h1>Update or Delete Form</h1>
+					{Object.keys(ad).length ? (
+						<>
+							<h3>{ad.name}</h3>
+							<img src={`${ad.imageUrl}`} />
+							<p>{ad.description}</p>
+						</>
+					) : (
+						<h1>Loading...</h1>
+					)}
+				</header>
 				<section>
 					<p>
 						<label htmlFor="name" />
@@ -106,7 +108,7 @@ export default function Post(props) {
 					</p>
 					<p>
 						<input
-							className="standard-button"
+							className="standard-button update"
 							type="submit"
 							value="Update Ad"
 						/>

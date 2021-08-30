@@ -1,9 +1,58 @@
 form.post {
-  color: $white;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 10px;
+    justify-content: center;
+    align-items: center;
 
-  img {
-    max-width: 200px;
-    height: auto;
-    border-radius: 2px;
+  header#ad-info {
+    img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 2px;
+      margin: 0.5em 0 1.5em 0;
+    }
+
+    h1 {
+      color: $magenta;
+      filter: drop-shadow(4px 4px 4px $orange);
   }
 }
+
+    section {
+      display: block;
+      width: 80%;
+      align-self: center;
+      margin: 0 20px 0 10px;
+
+      input {
+        background-color: $input-magenta-light;
+        padding: 10px;
+        border: 2px solid $orange;
+        box-shadow: 0 0 6px 6px $input-magenta;
+        border-radius: 10px;
+        width: 100%;
+        font-family: inherit;
+      }
+
+      #name {
+        margin: 5px 0 10px 0;
+      }
+
+      #description {
+        margin: 5px 0 10px 0;
+      }
+
+      #image {
+        margin: 5px 0 35px 0;
+      }
+
+      input:focus {
+        border-radius: 0;
+        background-color: $focus-yellow;
+        color: $white;
+        box-shadow: 0 0 6px 6px $orange;
+      }
+    }
+  }

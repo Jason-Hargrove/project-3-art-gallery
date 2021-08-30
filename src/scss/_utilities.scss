@@ -16,6 +16,10 @@ body {
 background-image: linear-gradient(rgba(10, 10, 10, 0.5), rgba(255, 255, 0, .1)), url("/img/trefoil-circle.jpg");
 }
 
+h4 {
+  filter: drop-shadow(4px 4px 4px $orange);
+}
+
 input {
   padding: 10px;
   border: 2px solid $orange;

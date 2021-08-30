@@ -54,6 +54,16 @@
   border-color: $magenta;
 }
 
+.standard-button.update {
+  @extend %new-button;
+  background-color: $yellow;
+  box-shadow: none;
+}
+.standard-button.update:hover {
+  color: $orange;
+  text-shadow: none;
+  border-color: $magenta;
+}
 
 .delete-button {
   @extend %new-button;
