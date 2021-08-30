@@ -22,5 +22,12 @@ input {
   box-shadow: 0 0 6px 6px $input-magenta;
   border-radius: 10px;
   width: 100%;
+  font-family: inherit;
+}
 
+input:focus {
+  border-radius: 0;
+  background-color: $focus-yellow;
+  color: $white;
+  box-shadow: 0 0 6px 6px $orange;
 }

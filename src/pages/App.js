@@ -122,7 +122,9 @@ export default function App(props) {
 
 					<aside className="sidebar1">
 						<form onSubmit={handleSubmit}>
-							<label htmlFor="title">Find some art.</label>
+							<label id="wiggle-wiggle" htmlFor="title">
+								Lets find some art!
+							</label>
 							<input
 								id="title"
 								placeholder="Enter a title here"
@@ -136,7 +138,7 @@ export default function App(props) {
 								value="Find Art"
 							/>
 						</form>
-						<p>Click on an object ID below.</p>
+						<p>Then click on an object ID below.</p>
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
 								<div key={word}>

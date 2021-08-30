@@ -16,6 +16,7 @@
 .standard-button {
   @extend %new-button;
   background-color: $yellow;
+  box-shadow: none;
 }
 .standard-button:hover {
   color: $orange;

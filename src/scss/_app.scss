@@ -42,6 +42,25 @@ section.app-page {
       margin: 10px;
 
 
+      @keyframes wiggle {
+          0% { transform: rotate(0deg); }
+         80% { transform: rotate(90deg); }
+         85% { transform: rotate(360deg); }
+         95% { transform: rotate(-360deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      #wiggle-wiggle {
+        display: inline-block;
+        animation: wiggle 8s;
+        animation-delay: 5s;
+      }
+
+      #wiggle-wiggle:hover {
+        animation: none;
+        color: $orange;
+      }
+
       ul {
         p {
           margin: 15px 0 20px 0;
@@ -49,6 +68,8 @@ section.app-page {
       }
     }
   }
+
+
 
   @media (min-width: 768px) {
     main {
@@ -78,7 +99,7 @@ section.app-page {
       }
 
       #title {
-        margin-right: 1em;
+        margin: 1em 0 1.5em 0;
       }
     }
   }

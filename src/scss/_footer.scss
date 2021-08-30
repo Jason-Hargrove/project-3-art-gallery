@@ -1,0 +1,21 @@
+footer {
+  form {
+    section {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 20px 0 10px;
+      input {
+        background-color: $input-magenta-light;
+      }
+      #name {
+        margin: 5px 0 10px 0;
+      }
+      #image {
+        margin: 5px 0 10px 0;
+      }
+      #description {
+        margin: 5px 0 15px 0;
+      }
+    }
+  }
+}

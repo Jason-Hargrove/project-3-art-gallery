@@ -28,7 +28,7 @@ const AddAd = ({ onAdd }) => {
 					<input
 						type="text"
 						id="name"
-						placeholder="Add Ad"
+						placeholder="Add a title."
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
@@ -39,7 +39,7 @@ const AddAd = ({ onAdd }) => {
 					<input
 						type="text"
 						id="image"
-						placeholder="Add Image URL"
+						placeholder="Add an image URL."
 						value={imageUrl}
 						onChange={e => setImageUrl(e.target.value)}
 					/>
@@ -50,7 +50,7 @@ const AddAd = ({ onAdd }) => {
 					<input
 						type="text"
 						id="description"
-						placeholder="Add Description"
+						placeholder="Add a description."
 						value={description}
 						onChange={e => setDescription(e.target.value)}
 					/>
