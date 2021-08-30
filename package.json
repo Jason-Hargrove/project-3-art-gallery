@@ -2,7 +2,7 @@
   "engines": {
     "node": "14.17.0"
   },
-  "name": "jason-hargrove-project-3-art-gallery",
+  "name": "project-3-art-gallery",
   "version": "0.1.0",
   "description": "Search the Metropolitan Museum of art",
   "main": "server.js",
