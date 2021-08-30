@@ -1,47 +1,17 @@
-# Big Poppa Code React Starter Kit
-This Starter Kit is being created for New Web Developers that want to get started with react
+# Search the Metropolitan Museum of Art
+This app lets users search for works of art at the Metropolitan Museum of Art using their Application Programming Interface.
 
-Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
+It also has the ability to create, read, update, and destroy ads inside the app.
 
-The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
-everything under the hood and no opinionated set up
+# This Is Me
 
-I will base all my tutorials on this Starter Kit.
+![arthurbernierjr.com](https://images.squarespace-cdn.com/content/v1/57902faa59cc68a958c59c03/1470089724453-O1WN2E2YQHVPXJVRD7YQ/About+The+Artist-1.jpg?format=1000w)
 
-# Who Am I?
-
-![arthurbernierjr.com](http://progressandfortune.com/smac_images/profile.jpg)
-
-I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
-subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
-I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you. I also am a Full-Time Instructor at General Assembly as well as a Software Engineer at Blavity Inc.
+I’m a Software Engineer with a background in fine art. I tackle hidden problems by throwing myself into my work, finding connections between unrelated things, and turning my thoughts into something real. I believe the fear of the unknown can be overcome with a well designed product, and I’m passionate about presenting it in a unique way. My background in graphic design and my experience as a street artist enables me to approach each project with a spirit for communicating graphically to provoke a reaction.
 
 
-# My Favorite Online Instructors
+# Links
 
-[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
+[__This Project on Heroku__](https://project-3-art-gallery.herokuapp.com/)
 
-[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
-
-[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
-
-[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
-
-## Steps
-
-**Install Gulp Globally**
-```bash
-npm i -g gulp-cli
-```
-
-**Start the dev server**
-```bash
-npm run dev
-```
-### or
-```bash
-yarn dev
-```
-
-
-```
+[__My Personal Website__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
