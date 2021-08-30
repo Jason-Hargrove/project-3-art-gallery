@@ -1,10 +1,10 @@
 {
   "engines": {
-    "node": ">=12.16.3"
+    "node": "14.17.0"
   },
-  "name": "big-poppa-code-react-starter-kit",
+  "name": "jason-hargrove-project-3-art-gallery",
   "version": "0.1.0",
-  "description": "A way for people to start a react project and not be locked into create react app",
+  "description": "Search the Metropolitan Museum of art",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
     "styles": "gulp styles",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Jason Hargrove",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.5",
