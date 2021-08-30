@@ -12,7 +12,7 @@ export default function App(props) {
 	const [ads, setAds] = useState([]);
 	const [showAddAd, setShowAddAd] = useState(false);
 
-	// ========== MOMA API Call ==========
+	// ========== MET API Call ==========
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
@@ -66,7 +66,7 @@ export default function App(props) {
 	};
 
 	// ↑↑↑↑↑↑↑↑↑↑↑  End - Add an Object to the Page ↑↑↑↑↑↑↑↑↑↑↑
-	// ========== End - MOMA API Call ==========
+	// ========== End - Met API Call ==========
 
 	// ========== Advertisements ==========
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Right Panel Ads ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -109,7 +109,7 @@ export default function App(props) {
 				<header>
 					<img
 						className="logo"
-						src="/img/serch-the-moma-api.png"
+						src="/img/search-the-met-api.png"
 						id="imgTag"
 						alt="Test Image"
 					/>
