@@ -14,4 +14,4 @@ I’m a Software Engineer with a background in fine art. I tackle hidden problem
 
 [__This Project on Heroku__](https://project-3-art-gallery.herokuapp.com/)
 
-[__My Personal Website__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+[__My Personal Website__](http://www.jasonhargroveart.com/)
