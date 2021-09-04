@@ -8,7 +8,7 @@ What is ReactDom?
 What is (if any) the realation between ShadowDom, VirturalDom and ReactDom?
 
 # Project Improvements
-I would like to be able to see an image of my project in the Featured section on Linkedin. I've tried several ways of setting meta property with Open Graph Protocol, but nothing has worked yet. I even used Linkedin's recomendations [__on linkedin__](https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en).
+I would like to be able to see an image of my project in the Featured section on Linkedin. I've tried several ways of setting meta property with Open Graph Protocol, but nothing has worked yet. I even used Linkedin's recommendations [__on linkedin__](https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en).
 
 # This Is Me
 
