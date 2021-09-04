@@ -3,6 +3,13 @@ This app lets users search for works of art at the Metropolitan Museum of Art us
 
 It also has the ability to create, read, update, and destroy ads inside the app.
 
+# Questions about the MERN Statck
+What is ReactDom?
+What is (if any) the realation between ShadowDom, VirturalDom and ReactDom?
+
+# Project Improvements
+I would like to be able to see an image of my project in the Featured section on Linkedin. I've tried several ways of setting meta property with Open Graph Protocol, but nothing has worked yet. I even used Linkedin's recomendations [__on linkedin__](https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en).
+
 # This Is Me
 
 ![jasonhargroveart.com](https://images.squarespace-cdn.com/content/v1/57902faa59cc68a958c59c03/1470089724453-O1WN2E2YQHVPXJVRD7YQ/About+The+Artist-1.jpg?format=1000w)
