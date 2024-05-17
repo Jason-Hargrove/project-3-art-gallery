@@ -19,6 +19,6 @@ I’m a Software Engineer with a background in fine art. I tackle hidden problem
 
 # Links
 
-[__This Project on Heroku__](https://project-3-art-gallery.herokuapp.com/)
+[__This Project on Heroku__](https://project-3-art-gallery-234e4bca97cc.herokuapp.com/)
 
 [__My Personal Website__](http://www.jasonhargroveart.com/)
