@@ -13,7 +13,7 @@ export default function App(props) {
 	const [showAddAd, setShowAddAd] = useState(false);
 
 	// ========== MET API Call ==========
-	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Grabbing the objectIDs ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	const getArt = async searchTerm => {
 		try {
@@ -27,7 +27,7 @@ export default function App(props) {
 			updateArt(data);
 			updatePopulate('');
 		} catch (err) {
-			console.error(err);
+			console.error('Error fetching art:', err);
 		}
 	};
 
@@ -56,7 +56,7 @@ export default function App(props) {
 			updatePopulate(data);
 			updateArt('');
 		} catch (err) {
-			console.error(err);
+			console.error('Error posting art:', err);
 		}
 	};
 
@@ -72,20 +72,27 @@ export default function App(props) {
 	// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Right Panel Ads ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	useEffect(() => {
-		(async () => {
+		const fetchAds = async () => {
 			try {
+				// Fetch ads from API
 				const response = await fetch('/api/ads');
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+				// Parse JSON response into a javascript object
 				const data = await response.json();
 				setAds(data);
 			} catch (error) {
-				console.error(error);
+				console.error('Error fetching ads:', error);
 			}
-		})();
+		};
+		fetchAds();
 	}, []);
 
 	// Add an Ad
 	const addAd = async e => {
 		try {
+			// Send POST request to add a new ad
 			const response = await fetch('/api/ads/', {
 				method: 'POST',
 				headers: {
@@ -96,7 +103,7 @@ export default function App(props) {
 			const data = await response.json();
 			setAds([...ads, data]);
 		} catch (error) {
-			res.status(404).json({ message: error.message });
+			console.error('Error adding ad:', error);
 		}
 	};
 
@@ -117,10 +124,12 @@ export default function App(props) {
 
 				<main>
 					<article className="main">
+						{/* Display the selected art information */}
 						{Object.keys(populate).length ? <ArtInfo art={populate} /> : ''}
 					</article>
 
 					<aside className="sidebar1">
+						{/* Form to search for art */}
 						<form onSubmit={handleSubmit}>
 							<label id="wiggle-wiggle" htmlFor="title">
 								Lets find some art!
@@ -139,6 +148,7 @@ export default function App(props) {
 							/>
 						</form>
 						<p>Then click on an object ID below.</p>
+						{/* Display list of object IDs */}
 						{art.objectIDs &&
 							art.objectIDs.map(word => (
 								<div key={word}>
@@ -154,28 +164,32 @@ export default function App(props) {
 					</aside>
 
 					<aside className="sidebar2">
+						{/* Display list of ads */}
 						<ul>
-							{ads.map(ad => {
-								return (
+							{ads.length > 0 ? (
+								ads.map(ad => (
 									<li key={ad._id}>
 										<a href="http://www.jasonhargroveart.com/purchase">
 											<h4>{ad.name}</h4>
 										</a>
 										<Link to={`${ad._id}`}>
-											<img src={`${ad.imageUrl}`} />
+											<img src={`${ad.imageUrl}`} alt={ad.name} />
 										</Link>
 										<a href="http://www.jasonhargroveart.com/purchase">
 											<p>{ad.description}</p>
 										</a>
 									</li>
-								);
-							})}
+								))
+							) : (
+								<p>No ads to display</p>
+							)}
 						</ul>
 					</aside>
 				</main>
 
 				<footer>
 					<Footer onAdd={() => setShowAddAd(!showAddAd)} showAdd={showAddAd} />
+					{/* Show AddAd component when showAddAd is true */}
 					{showAddAd && <AddAd onAdd={addAd} />}
 				</footer>
 			</section>
